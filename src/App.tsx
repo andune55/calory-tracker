@@ -30,14 +30,23 @@ function App() {
         </div>
       </header>
 
-      <section className="bg-lime-500 py-20 px-5">
-        <div className="max-w-4xl mx-auto">
-          <Form 
-            dispatch = {dispatch}
-            state = {state}
+      <div className="flex max-sm:flex-col">
+        <section className="bg-lime-500 py-20 px-5 w-[40%] max-sm:w-full">
+          <div className="max-w-4xl mx-auto">
+            <Form
+              dispatch = {dispatch}
+              state = {state}
+            />
+          </div>
+        </section>
+
+        <section className="p-10 mx-auto w-[60%] max-sm:w-full">
+          <ActivityList 
+            activities={state.activities}
+            dispatch={dispatch}
           />
-        </div>
-      </section>
+        </section>
+      </div>
 
       <section className="bg-gray-800 py-10">
       <div className="max-w-4xl mx-auto">
@@ -47,12 +56,7 @@ function App() {
       </div>
       </section>
 
-      <section className="p-10 mx-auto max-w-4xl">
-        <ActivityList 
-          activities={state.activities}
-          dispatch={dispatch}
-        />
-      </section>
+     
       
     </>
   )
