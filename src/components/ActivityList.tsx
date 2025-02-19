@@ -32,8 +32,7 @@ export default function ActivityList({activities, dispatch}: ActivityListProps) 
                     <p className={`flex items-center max-sm:text-left px-4 max-sm:my-0 max-sm:rounded-tl-xl text-white uppercase ${activity.category === 1 ? 'bg-lime-500 max-sm:bg-linear-to-r from-lime-500 to-white' : 'bg-orange-500 max-sm:bg-linear-to-r from-orange-500 to-white'}`}>
                         {/* {activity.category} */}
                         <span className="font-bold">{categoryName(+activity.category)}&nbsp;</span><span className="text-black text-xs">{` - ${activity.name}`}</span> 
-                        
-                    </p>
+                     </p>
                     <div className="flex items-baseline">                        
                         <p className={`font-black text-xl ${activity.category === 1 ? 'text-lime-500' : 'text-orange-500'} ml-1.25`}>
                             {activity.calories} {''}
