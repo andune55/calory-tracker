@@ -20,29 +20,28 @@ export default function ActivityList({activities, dispatch}: ActivityListProps) 
 
     return (
     <>
-        <h2 className="text-4xl font-bold text-slate-600 text-center">Comida y Actividades</h2>
+        <h2 className="text-4xl max-sm:text-2xl max-sm:mb-2 font-bold text-slate-600 text-center">Comida y Actividades</h2>
 
         {isEmptyActivities 
             ? <p className="text-center my-5">No hay actividades aún</p> :
         
         activities.map(activity => (
-            <div key={activity.id} className="px-5 py-2 bg-white mt-4 flex justify-between">
-                <div className="space-y-2 relative">
+            <div key={activity.id} className={`px-3 max-sm:px-0 py-2 max-sm:py-0 bg-white mt-4 max-sm:mt-0 max-sm:mb-1.25 flex justify-between rounded-md max-sm:shadow ${activity.category === 1 ? 'border-lime-500' : 'border-orange-500'}`}>
+                <div className="space-y-2 max-sm:w-full">
                     {/* Muestra actividad: categoría, nombre y calorías */}
-                    <p className={`absolute -top-6 -left-8 px-5 text-white uppercase font-bold ${activity.category === 1 ? 'bg-lime-500' : 'bg-orange-500'}`}>
+                    <p className={`flex items-center max-sm:text-left px-4 max-sm:my-0 max-sm:rounded-tl-xl text-white uppercase ${activity.category === 1 ? 'bg-lime-500 max-sm:bg-linear-to-r from-lime-500 to-white' : 'bg-orange-500 max-sm:bg-linear-to-r from-orange-500 to-white'}`}>
                         {/* {activity.category} */}
-                        {categoryName(+activity.category)}
+                        <span className="font-bold">{categoryName(+activity.category)}&nbsp;</span><span className="text-black text-xs">{` - ${activity.name}`}</span> 
                         
                     </p>
-                    <div className="flex items-baseline">
-                        <p className="text-xl font-bold">{activity.name} - </p> 
-                        <p className="font-black text-xl text-lime-500 ml-1.25">
+                    <div className="flex items-baseline">                        
+                        <p className={`font-black text-xl ${activity.category === 1 ? 'text-lime-500' : 'text-orange-500'} ml-1.25`}>
                             {activity.calories} {''}
                             <span>Calorías</span>
                         </p>
                     </div>
                 </div>
-                <div className="flex gap-5 items-center">
+                <div className="flex gap-2 items-center">
                     {/* Acciones para editar/eliminar esa actividad */}
                     <button
                         className="cursor-pointer"
